@@ -16,14 +16,12 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
 
-
-
-    match (fromList ["about.rst", "contact.markdown"]) $ do
+    match (fromList ["misc.markdown"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
-
+    
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
@@ -31,13 +29,13 @@ main = hakyllWith config $ do
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
 
-    create ["archive.html"] $ do
+    create ["blog.html"] $ do
         route idRoute
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let archiveCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Archives"            `mappend`
+                    constField "title" "Blog"            `mappend`
                     defaultContext
 
             makeItem ""
@@ -52,7 +50,7 @@ main = hakyllWith config $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let indexCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Home"                `mappend`
+                    constField "title" "Abtin Molavi"                `mappend`
                     defaultContext
 
             getResourceBody
