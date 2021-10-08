@@ -43,6 +43,9 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
+    match ("files/*") $ do
+        route   idRoute
+        compile copyFileCompiler
 
     match "index.html" $ do
         route idRoute
