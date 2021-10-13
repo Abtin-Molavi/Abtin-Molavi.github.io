@@ -16,7 +16,7 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
 
-    match (fromList ["misc.markdown"]) $ do
+    match (fromList ["misc.markdown", "index.markdown"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
@@ -47,19 +47,8 @@ main = hakyllWith config $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "index.html" $ do
-        route idRoute
-        compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
-            let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Abtin Molavi"                `mappend`
-                    defaultContext
 
-            getResourceBody
-                >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
+
 
     match "templates/*" $ compile templateBodyCompiler
 
