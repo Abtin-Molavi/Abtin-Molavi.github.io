@@ -19,7 +19,14 @@ I worked on quantatative program analysis with [Lucas Bang](https://www.cs.hmc.e
 
 <td>“MCBAT: Model Counting for Constraints over Bounded Integer Arrays.” [[pdf](./files/vstte20.pdf)]  
   
-  Abtin Molavi, Thomas Schneider, Lucas Bang  </td> 
+  Abtin Molavi, Thomas Schneider, Mara Downing, Lucas Bang  </td> 
+</tr>
+
+<tr><td>[FSE20]</td>
+
+<td>“MCBAT: A Practical Tool for Model Counting Constraints on Bounded Integer Arrays” [[pdf](./files/fse20.pdf)][[video](https://www.cs.hmc.edu/~bang/mcbat.html)]  
+  
+  Abtin Molavi, Thomas Schneider, Mara Downing, Lucas Bang  </td> 
 </tr>
 
 
